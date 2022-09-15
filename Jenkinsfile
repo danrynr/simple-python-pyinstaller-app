@@ -10,7 +10,7 @@ node {
             junit 'test-reports/results.xml'
         }
     }
-    withDockerContainer(image: 'cdrx/pyinstaller-linux:python2'){
+    withDockerContainer(image: 'cdrx/pyinstaller-linux'){
         stage('Deliver') {
             sh 'pyinstaller --onefile sources/add2vals.py'
             archiveArtifacts{
