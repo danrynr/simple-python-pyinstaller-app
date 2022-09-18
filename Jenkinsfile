@@ -10,4 +10,13 @@ node {
             junit 'test-reports/results.xml'
         }
     }
+    withDockerContainer(image: 'cdrx/pyinstaller-linux:python2') {
+        stage('Deploy') {
+            sh 'pyinstaller --onefile sources/add2vals.py'
+            input(
+                message: "Apakah anda yakin ingin DEPLOY aplikasi ini? (Klik 'Proceed' untuk melanjutkan)"
+            )
+            archiveArtifacts 'dist/add2vals'
+        }
+    }
 }
