@@ -16,9 +16,12 @@ node {
     }
     // Deploy stage, and wait 1 minute after deploy before end the pipeline
     withDockerContainer(image: 'cdrx/pyinstaller-linux') {
+        // stage('Deploy') {
+        //     sh 'docker pyinstaller --onefile --clean --distpath dist --workpath build sources/add2vals.py'
+        //     sleep 60
+        // }
         stage('Deploy') {
-            sh 'docker pyinstaller --onefile --clean --distpath dist --workpath build sources/add2vals.py'
-            sleep 60
+            sh 'echo "Deploy"'
         }
     }
     
