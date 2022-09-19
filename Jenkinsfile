@@ -18,7 +18,8 @@ node {
         // sh "docker run --rm -v \$(pwd)/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F /sources/add2vals.py'"
         // sh "docker run --rm -v \$(pwd):/src/ cdrx/pyinstaller-linux:python2"
         sh "docker pull cdrx/pyinstaller-linux:python2"
-        sh 'pyinstaller -F /src/add2vals.py'
+        sh "docker run --rm -v \$(pwd):/src/ cdrx/pyinstaller-linux:python2 'pyinstaller -F /src/sources/add2vals.py'"
+        // sh 'pyinstaller -F /src/add2vals.py'
         archiveArtifacts 'dist/add2vals'
     }
 }
