@@ -15,23 +15,19 @@ node {
         input 'Lanjutkan ke tahap Deploy?'
     }
     
-    stage('Deploy') {
-        sh "docker run --rm -v \$(pwd)/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F /sources/add2vals.py'"
-        // archiveArtifacts 'dist/add2vals'
-    }
-    // } 
+    // stage('Deploy') {
+    //     sh "docker run --rm -v \$(pwd)/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F /sources/add2vals.py'"
+    //     archiveArtifacts 'dist/add2vals'
+    // }
     
 
-
-
-
-
-
-
-    // withDockerContainer(image: 'cdrx/pyinstaller-linux:python2') {
-    //     stage('Deploy') {
-    //         sh 'pyinstaller --onefile sources/add2vals.py'
-    //         archiveArtifacts 'dist/add2vals'
-    //     }
-    // }
+    withDockerContainer(image: 'cdrx/pyinstaller-linux:python2') {
+        stage('Deploy') {
+            timeout(time: 1, unit: 'MINUTES') {
+                sh "pyinstaller -F /sources/add2vals.py"
+            }
+            sh 'pyinstaller --onefile sources/add2vals.py'
+            archiveArtifacts 'dist/add2vals'
+        }
+    }
 }
