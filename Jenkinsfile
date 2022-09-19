@@ -16,12 +16,7 @@ node {
     }
     
         stage('Deploy') {
-            environment {
-                VOLUME = '$(pwd)/sources:/sources'
-                IMAGE = 'cdrx/pyinstaller-linux'
-            }
-
-            sh 'docker run --rm -v ${VOLUME} ${IMAGE} "pyinstaller -F /sources/add2vals.py"'
+            sh 'docker run --rm -v $(pwd)/sources:/src cdrx/pyinstaller-linux:python2 "pyinstaller -F /sources/add2vals.py"'
         }
     // }
     
