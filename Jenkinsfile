@@ -11,7 +11,6 @@ node {
         }
     }
     stage('Manual Approval') {
-        sh 'echo "Approval"'
         input 'Lanjutkan ke tahap Deploy?'
     }
     
@@ -25,7 +24,7 @@ node {
         stage('Deploy') {
             //wait until pyinstaller is installed
             sh 'sleep 10'
-            
+
             sh 'pyinstaller --onefile sources/add2vals.py'
             archiveArtifacts 'dist/add2vals'
         }
