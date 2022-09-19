@@ -14,13 +14,15 @@ node {
         sh 'echo "Approval"'
         input 'Lanjutkan ke tahap Deploy?'
     }
-
-    withDockerContainer(image: 'cdrx/pyinstaller-linux:python2') {
+    
         stage('Deploy') {
-            sh 'docker run "pyinstaller --onefile /sources/add2vals.py"'
-            archiveArtifacts 'dist/add2vals'
+            sh "docker run --rm -v $(pwd)/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F /sources/add2vals.py'"
         }
-    }
+    // }
+    
+
+
+
 
 
 
