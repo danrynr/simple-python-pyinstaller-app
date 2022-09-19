@@ -21,7 +21,7 @@ node {
                 IMAGE = 'cdrx/pyinstaller-linux'
             }
 
-            sh 'docker run --rm -v $VOLUME $IMAGE pyinstaller -F /sources/add2vals.py'
+            sh 'docker run --rm -v ${VOLUME} ${IMAGE} pyinstaller -F /sources/add2vals.py'
         }
     // }
     
