@@ -1,1 +1,1 @@
-web: gunicorn naivebayesApp: app
+web: gunicorn sources/add2vals: app
