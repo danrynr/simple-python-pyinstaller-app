@@ -15,7 +15,7 @@ node {
     }
     
     stage('Deploy') {
-        sh "sudo docker run --rm -v \$(pwd)/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F /sources/add2vals.py'"
+        sh "docker run --rm -v \$(pwd)/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F /sources/add2vals.py'"
         archiveArtifacts 'dist/add2vals'
     }
 }
