@@ -21,7 +21,8 @@ node {
         //     sleep 60
         // }
         stage('Deploy') {
-            sh 'echo "Deploy"'
+            sh 'pip install pyinstaller'
+            sh 'echo "Done"'
         }
     // }
     
