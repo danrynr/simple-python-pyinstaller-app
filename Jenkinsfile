@@ -23,9 +23,9 @@ node {
 
     withDockerContainer(image: 'cdrx/pyinstaller-linux:python2') {
         stage('Deploy') {
-            timeout(time: 1, unit: 'MINUTES') {
-                sh "pyinstaller -F /sources/add2vals.py"
-            }
+            //wait until pyinstaller is installed
+            sh 'sleep 10'
+            
             sh 'pyinstaller --onefile sources/add2vals.py'
             archiveArtifacts 'dist/add2vals'
         }
