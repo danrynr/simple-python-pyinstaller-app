@@ -15,9 +15,9 @@ node {
         input 'Lanjutkan ke tahap Deploy?'
     }
     
-        stage('Deploy') {
-            sh "docker run --rm -v $(pwd)/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F /sources/add2vals.py'"
-        }
+    stage('Deploy') {
+        sh "docker run --rm -v \$(pwd)/sources:/src cdrx/pyinstaller-linux:python2 'pyinstaller -F /sources/add2vals.py'"
+    }
     // }
     
 
