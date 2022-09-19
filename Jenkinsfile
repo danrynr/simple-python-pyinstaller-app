@@ -14,15 +14,14 @@ node {
         sh 'echo "Approval"'
         input 'Lanjutkan ke tahap Deploy?'
     }
-    // Deploy stage, and wait 1 minute after deploy before end the pipeline
-    // withDockerContainer(image: 'cdrx/pyinstaller-linux') {
-        // stage('Deploy') {
-        //     sh 'docker pyinstaller --onefile --clean --distpath dist --workpath build sources/add2vals.py'
-        //     sleep 60
-        // }
+    
         stage('Deploy') {
-            sh 'pip install pyinstaller'
-            sh 'echo "Done"'
+            environment {
+                VOLUME = '$(pwd)/sources:/sources'
+                IMAGE = 'cdrx/pyinstaller-linux'
+            }
+
+            sh 'docker run --rm -v $VOLUME $IMAGE pyinstaller -F /sources/add2vals.py'
         }
     // }
     
