@@ -14,14 +14,25 @@ node {
         sh 'echo "Approval"'
         input 'Lanjutkan ke tahap Deploy?'
     }
-
-    withDockerContainer(image: 'cdrx/pyinstaller-linux:python2') {
+    // Deploy stage, and wait 1 minute after deploy before end the pipeline
+    withDockerContainer(image: 'cdrx/pyinstaller-linux') {
         stage('Deploy') {
             sh 'pyinstaller --onefile sources/add2vals.py'
-            // input(
-            //     message: "Apakah anda yakin ingin DEPLOY aplikasi ini? (Klik 'Proceed' untuk melanjutkan)"
-            // )
-            archiveArtifacts 'dist/add2vals'
+            sh 'ls -l dist'
+            sh 'cp dist/add2vals /var/www/html/'
         }
     }
+
+
+
+
+
+
+
+    // withDockerContainer(image: 'cdrx/pyinstaller-linux:python2') {
+    //     stage('Deploy') {
+    //         sh 'pyinstaller --onefile sources/add2vals.py'
+    //         archiveArtifacts 'dist/add2vals'
+    //     }
+    // }
 }
