@@ -9,3 +9,4 @@ if __name__ == "__main__":
 
 def main():
     add2vals.add2(1, 2)
+    sys.exit()
