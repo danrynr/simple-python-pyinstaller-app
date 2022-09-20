@@ -9,6 +9,7 @@ setup(
         'pyinstaller',
         'gunicorn',
     ],
+    package_dir={'': 'sources'},
     py_modules=[
         'add2vals',
         'calc',

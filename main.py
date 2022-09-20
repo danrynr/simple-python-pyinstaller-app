@@ -2,7 +2,7 @@
 import add2vals from sources directory
 use it to calculate 2 numbers
 """
-import add2vals
+from sources import add2vals
 
 def main():
     """main function"""
