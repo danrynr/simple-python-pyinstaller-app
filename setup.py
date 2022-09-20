@@ -7,7 +7,6 @@ setup(
     python_requires='>=2.7',
     install_requires=[
         'pyinstaller',
-        'flask',
         'gunicorn',
     ],
     package_dir={'': 'sources'},
@@ -15,10 +14,6 @@ setup(
         'add2vals',
         'calc',
         'main',
-    ],
-    html=[
-        'templates/index.html',
-        'templates/result.html',
     ],
     entry_points={
         'console_scripts': [

@@ -8,5 +8,4 @@ if __name__ == "__main__":
     main()
 
 def main():
-
-    print(add2vals.add2(40, 12))
+    add2vals.add2vals(1, 2)
