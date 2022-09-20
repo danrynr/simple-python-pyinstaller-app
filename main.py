@@ -1,7 +1,3 @@
-"""
-import add2vals from sources directory
-use it to calculate 2 numbers
-"""
 from sources import add2vals
 
 from flask import Flask
