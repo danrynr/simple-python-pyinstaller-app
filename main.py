@@ -4,9 +4,13 @@ use it to calculate 2 numbers
 """
 from sources import add2vals
 
-if __name__ == "__main__":
-    main()
+import flask from Flask
 
-def main():
-    add2vals.add2(1, 2)
-    sys.exit()
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return add2vals.add2vals(20, 11)
+
+if __name__ == '__main__':
+    app.run()
