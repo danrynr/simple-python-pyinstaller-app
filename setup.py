@@ -18,7 +18,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'simple-python-pyinstaller-app = simple_python_pyinstaller_app.__main__:main',
+            'simple-python-pyinstaller-app = main:main',
         ],
     },
 )
