@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return add2vals.add2(20, 11)
+    return add2vals.add2('20', '11')
 
 if __name__ == '__main__':
     app.run()
