@@ -7,6 +7,7 @@ setup(
     python_requires='>=2.7',
     install_requires=[
         'pyinstaller',
+        'flask',
         'gunicorn',
     ],
     package_dir={'': 'sources'},
