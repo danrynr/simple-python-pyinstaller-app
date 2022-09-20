@@ -8,6 +8,7 @@ setup(
     install_requires=[
         'pyinstaller',
         'gunicorn',
+        'flask',
     ],
     package_dir={'': 'sources'},
     py_modules=[
