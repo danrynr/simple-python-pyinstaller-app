@@ -11,6 +11,12 @@ setup(
     ],
     py_modules=[
         'add2vals',
+        'calc',
+        'main',
+    ],
+    html=[
+        'templates/index.html',
+        'templates/result.html',
     ],
     entry_points={
         'console_scripts': [
