@@ -9,4 +9,4 @@ if __name__ == "__main__":
 
 def main():
 
-    print(add2vals 40 12)
+    print(add2vals.add2(40, 12))
