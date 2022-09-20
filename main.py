@@ -2,11 +2,11 @@
 import add2vals from sources directory
 use it to calculate 2 numbers
 """
-from sources import calc
+from sources import add2vals
 
 if __name__ == "__main__":
     main()
 
 def main():
-    print("Hello World!")
-    print("2 + 3 =", calc.add2(2, 3))
+
+    print(add2vals 40 12)

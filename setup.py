@@ -11,6 +11,7 @@ setup(
     ],
     package_dir={'': 'sources'},
     py_modules=[
+        'add2vals',
         'calc',
         'main',
     ],
